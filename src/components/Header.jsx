@@ -72,7 +72,7 @@ const Header = () => {
             <input className='w-full pl-3 py-[18px] border-[2px] rounded focus:outline-none' placeholder='Find products' />
             <div className='py-[20px] flex justify-center relative bg-[#62ab00] w-[80px] text-[25px] text-white rounded-e right-[70px] cursor-pointer '><IoSearch /></div>
         </div>
-        <div className='w-[20%] flex flex-col items-center border justify-center h-[60px]'>
+        <div className='w-[20%] flex flex-col items-center border-[2px] rounded justify-center h-[60px]'>
             <p className='text-[20px] font-medium text-[#62ab00] '>Black Friday</p>
             <p className='text-[13px]'>Get 45% off </p>
         </div>
