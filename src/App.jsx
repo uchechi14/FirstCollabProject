@@ -3,6 +3,8 @@ import './App.css'
 // import Layout from './components/Layout'
 import Header from './components/Header'
 import LandingPage from './page/LandingPage'
+import BuyerRoutingPage from './page/BuyerRoutingPage'
+import SellerRoutingPage from './page/SellerRoutingPage'
 
 function App() {
 
@@ -13,10 +15,8 @@ function App() {
 
 
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-
-
-        
+        <Route path="/" element={<BuyerRoutingPage />} />
+        <Route path="/" element={<SellerRoutingPage />} />
       </Routes>
       
       
