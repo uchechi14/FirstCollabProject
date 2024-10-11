@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        small: 'clamp(12px,2vw,16px)'
+      }, 
       gridTemplateColumns: {
         cardGrid: "repeat(auto-fill, minmax(300px, 1fr))",
         InfoGrid: "repeat(auto-fill, minmax(200px, 1fr))",
