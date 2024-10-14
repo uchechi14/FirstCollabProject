@@ -17,7 +17,10 @@ export default {
       backgroundImage: {
         'hero-pattern': "url('/img/hero-pattern.svg')",
         'footer-texture': "url('/img/footer-texture.png')",
-      }
+      },
+      clipPath: {
+        'triangle-up': 'polygon(0 0, 100% 0, 50% 100%)',
+      },
     },
   },
   plugins: [],

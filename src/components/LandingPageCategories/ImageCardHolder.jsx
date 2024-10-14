@@ -1,4 +1,5 @@
 import { CiHeart } from "react-icons/ci";
+import { IoMdHeart } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -7,6 +8,7 @@ const ImageCardHolder = () => {
 
     // const [change, setChange] = useState(false)
     const [data, setData] = useState()
+    const [change, setChange] = useState(false)
 
 
     const getCategoryProduct = async () =>{
@@ -22,6 +24,13 @@ const ImageCardHolder = () => {
         useEffect(() =>{
             getCategoryProduct()
         }, [])
+
+        const getIcons = () =>{
+            setChange(!change)
+        }
+        console.log(change)
+
+        
     
 
  
@@ -45,7 +54,9 @@ const ImageCardHolder = () => {
         <div className='text-[17px] font-medium mt-[15px]'>{props.title.slice(0, 15)}...</div>
         <div className='text-[20px] font-medium mt-[10px]'>$ {props.price}</div>
     </div>
-    <div className='text-[#F6D600] text-[30px]'><CiHeart /></div>
+    <div className='' onClick={getIcons}>
+        {change ? <p className="text-[#F6D600] text-[30px]"><CiHeart /></p> : <p className="text-[#F6D600] text-[30px]"><IoMdHeart /></p>} 
+        </div>
 </div>
   ))}
   </div>
