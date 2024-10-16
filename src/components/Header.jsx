@@ -59,7 +59,7 @@ const Header = () => {
         <div className='w-[20%]'>
         <div className='w-full justify-center py-[18px] bg-[#62AB00] flex items-center gap-2 rounded cursor-pointer' onClick={dropDown}> <p className='text-[25px] text-white'><CgMenuLeftAlt /></p> <p className='text-[17px] font-medium text-white'>Categories</p> <p className='text-[20px] text-white mt-1 transition-opacity duration-300 ease-in-out opacity-100'>{open? <RxCross2 />: <IoIosArrowDown /> }</p> </div>
         {open && (
-        <div className='relative rounded z-50 w-full py-3 mt-3 border flex flex-col items-center bg-white'>
+        <div className='absolute z-20 rounded px-[95px] py-3 mt-3 border flex flex-col items-center bg-white'>
              <p className=''>Phones</p>
             <p className='mt-1'>Phones</p>
             <p className='mt-1'>Phones</p>

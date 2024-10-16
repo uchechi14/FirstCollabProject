@@ -21,7 +21,7 @@ const WomenClothing = () => {
     }, [])
 
   return (
-    <div className='grid grid-cols-mediaGrid gap-3'>
+    <div className='grid w-full grid-cols-mediaGrid gap-3 mt-4'>
         {data?.map((props, index) =>(
              <div className='py-3 flex items-center flex-col gap-1 shadow-md bg-white' key={index}>
              <div className='w-[250px] h-[250px] flex justify-center'>
