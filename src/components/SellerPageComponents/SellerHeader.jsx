@@ -1,4 +1,4 @@
-import React, {useState}  from 'react'
+import React, {useContext, useState}  from 'react'
 
 import { IoMenuSharp } from "react-icons/io5";
 import { CgMenuLeft } from "react-icons/cg";
@@ -6,25 +6,18 @@ import { IoIosSearch } from "react-icons/io";
 import { HiShoppingBag } from "react-icons/hi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import profileImage from '../../assets/avatar-placeholder.svg'
+import { GlobalContext } from '../GlobalState';
 
 const SellerHeader = () => {
-  
 
 
-
-
-  const [open, setOpen] = useState(false)
-
-    const handleToggle = () =>{
-        setOpen(!open)
-    }
-    console.log(open)
+    const {open, handleToggle} = useContext(GlobalContext)
 
 
   return (
     <div className='w-full flex justify-center items-center h-[70px] bg-white shadow-sm '>
         <div className='w-[93%] flex items-center h-full justify-between '>
-        <div className='text-[25px]' onClick={handleToggle} >
+        <div className='text-[30px] cursor-pointer' onClick={handleToggle} >
           {open? <IoMenuSharp />: <CgMenuLeft />  }
         </div>
             <div className='w-[50%] flex relative items-center'>
