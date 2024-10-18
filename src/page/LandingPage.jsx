@@ -13,11 +13,11 @@ const LandingPage = () => {
   return (
     <>
     <div className=' mt-4 top-[200px]  w-[100%] flex items-center flex-col '>
-      <div className='w-[90%] flex justify-between gap-3 '>
-            <div className='w-[65%] h-[300px]'>
+      <div className='w-[90%] flex justify-between gap-3 max-md:flex-col'>
+            <div className='w-[65%] h-[300px] max-md:w-full'>
             <HeroSliderComponent />
             </div>
-            <div className='w-[33%]'>
+            <div className='w-[33%] max-md:w-full max-md:mt-[200px]'>
                 <img src={rightHeroImage} className=' w-full h-[220px]' />
                 <img src={lowerRightHeroImage} className='w-full mt-4 h-[220px]' />
             </div>

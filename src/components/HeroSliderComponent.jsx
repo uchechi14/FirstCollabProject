@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import image from '../assets/pinkshopping.jfif'
 import image2 from '../assets/blueBack.jpeg'
 import image3 from '../assets/shopping.jfif'
+import { Link } from "react-router-dom";
 
 const HeroSliderComponent = () => {
 
@@ -30,7 +31,7 @@ const HeroSliderComponent = () => {
     <div className='relative bottom-[350px] ml-[30px] z-50 '>
       <p className='text-[20px]'>Get 50% off today</p>
       <h1 className='w-[50%]  font-semibold mt-6 text-4xl'>SHOP WITH PRICE COMPARISON</h1>
-      <button className='px-[23px] py-[13px] mt-6 rounded font-medium bg-[#ffff] text-[17px] text-[#62ab00]'>Get Started</button>
+      <Link to='/register'><button className='px-[23px] py-[13px] mt-6 rounded font-medium bg-[#ffff] text-[17px] text-[#62ab00]'>Get Started</button></Link>
     </div>
     </div>
     <div className='w-full h-full'>
@@ -38,7 +39,7 @@ const HeroSliderComponent = () => {
     <div className='relative bottom-[350px] left-[430px] ml-[30px] z-50 '>
       <p className='text-[20px]'>Get 50% off today</p>
       <h1 className='w-[50%]  font-semibold mt-6 text-4xl'>SHOP WITH PRICE COMPARISON</h1>
-      <button className='px-[23px] py-[13px] mt-6 rounded font-medium bg-[#ffff] text-[17px] text-[#62ab00]'>Get Started</button>
+      <Link to='/register'><button className='px-[23px] py-[13px] mt-6 rounded font-medium bg-[#ffff] text-[17px] text-[#62ab00]'>Get Started</button></Link>
     </div>
     </div>
     <div className='w-full h-full'>
@@ -46,7 +47,7 @@ const HeroSliderComponent = () => {
     <div className='relative bottom-[350px] ml-[30px] z-50 '>
       <p className='text-[20px]'>Get 50% off today</p>
       <h1 className='w-[50%]  font-semibold mt-6 text-4xl'>SHOP WITH PRICE COMPARISON</h1>
-      <button className='px-[23px] py-[13px] mt-6 rounded font-medium bg-[#ffff] text-[17px] text-[#62ab00]'>Get Started</button>
+      <Link to='/register'><button className='px-[23px] py-[13px] mt-6 rounded font-medium bg-[#ffff] text-[17px] text-[#62ab00]'>Get Started</button></Link>
     </div>
     </div>
   </Slider>

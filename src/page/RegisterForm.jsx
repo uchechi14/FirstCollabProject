@@ -2,6 +2,7 @@ import React, { useReducer, useState } from "react";
 import InputField from "../components/InputField";
 import swal from "sweetalert";
 import axios from "axios"; // Import axios for HTTP requests
+import { useNavigate } from "react-router-dom";
 
 const ACTIONS = {
   UPDATE_FIELD: "UPDATE_FIELD",
@@ -15,9 +16,8 @@ const initialState = {
     password: "",
     firstName: "",
     lastName: "",
-    phoneNumber: "",
-    shopName: "",
-    shopUrl: "",
+    phoneNum: "",
+    companyName: "",
   },
   errors: {},
 };
@@ -40,25 +40,30 @@ const formReducer = (state, action) => {
       };
 
     case ACTIONS.VALIDATE_FORM:
-      const newErrors = {};
-      const { formData } = state;
-      const { role } = action.payload;
+      () => {
+        const newErrors = {};
+        const { formData } = state;
+        const { role } = action.payload;
 
-      // Validation checks
-      if (!formData.email) newErrors.email = "Email is required";
-      if (!formData.password) newErrors.password = "Password is required";
-      if (!formData.firstName) newErrors.firstName = "First Name is required";
+        // Validation checks
+        if (!formData.email) newErrors.email = "Email is required";
+        if (!formData.password) newErrors.password = "Password is required";
+        if (!formData.firstName) newErrors.firstName = "First Name is required";
 
-      if (role === "vendor") {
-        if (!formData.shopName) newErrors.shopName = "Shop Name is required";
-        if (!formData.shopUrl) newErrors.shopUrl = "Shop URL is required";
-      }
+        if (role === "vendor") {
+          if (!formData.companyName)
+            newErrors.shopName = "company name is required";
+          if (!formData.phoneNum)
+            newErrors.shopUrl = "phone Number is required";
+        }
 
-      return {
-        ...state,
-        errors: newErrors,
+        return {
+          ...state,
+          errors: newErrors,
+        };
       };
 
+      break;
     default:
       return state;
   }
@@ -67,28 +72,47 @@ const formReducer = (state, action) => {
 const RegisterForm = () => {
   const [role, setRole] = useState("vendor"); // Default role
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     dispatch({
       type: ACTIONS.VALIDATE_FORM,
       payload: { role },
     });
-  
+
     // Delay for async actions
     setTimeout(async () => {
       if (Object.keys(state.errors).length === 0) {
         try {
-          const res = await axios.post("", state.formData);
-          
-          if (res.status === 200) { // Check for successful response
+          let res
+          if(role === 'vendor'){
+            res = await axios.post(
+              "https://crossbackend.onrender.com/api/seler/register",
+              state?.formData
+            );
+          }else{
+            res = await axios.post(
+              "https://crossbackend.onrender.com/api/user/register",
+              state?.formData
+            );
+          }
+
+          if (res.status === 201) {
+            // Check for successful response
+            console.log(res);
+            navigate('/login')
             swal("Success!", "Form submitted successfully!", "success");
           } else {
-            throw new Error('Registration failed'); // Throw an error if the response is not successful
+            throw new Error("Registration failed"); // Throw an error if the response is not successful
           }
         } catch (error) {
-          console.error("Registration Error:", error.response || error.message); // Log the error to the console
-          swal("Error!", error.response?.data?.message || "Failed to register", "error"); 
+          console.error("Registration Error:", error || error.message); // Log the error to the console
+          swal(
+            "Error!",
+            error.response?.data?.message || "Failed to register",
+            "error"
+          );
         }
       } else {
         const errorMessages = Object.values(state.errors).join("\n");
@@ -96,7 +120,7 @@ const RegisterForm = () => {
       }
     }, 0);
   };
-  
+  console.log(state);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -121,62 +145,74 @@ const RegisterForm = () => {
             type="email"
             id="email"
             name="email"
-            value={state.formData.email}
+            value={state?.formData.email}
             onChange={handleChange}
             required
             placeholder="Enter your email"
-            errorMessage={state.errors.email}
+            errorMessage={state?.errors.email}
           />
 
+          <InputField
+            label="firstName"
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={state?.formData.firstName}
+            onChange={handleChange}
+            required
+            placeholder="Enter your First Name"
+            errorMessage={state?.errors.firstName}
+          />
+          <InputField
+            label="LastName"
+            type="text"
+            id="firstName"
+            name="lastName"
+            value={state?.formData.lastName}
+            onChange={handleChange}
+            required
+            placeholder="Enter your Last Name"
+            errorMessage={state?.errors.lastName}
+          />
           <InputField
             label="Password"
             type="password"
             id="password"
             name="password"
-            value={state.formData.password}
+            value={state?.formData.password}
             onChange={handleChange}
             required
             placeholder="Enter your password"
-            errorMessage={state.errors.password}
-          />
-
-          <InputField
-            label="Name"
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={state.formData.firstName}
-            onChange={handleChange}
-            required
-            placeholder="Enter your Name"
-            errorMessage={state.errors.firstName}
+            errorMessage={state?.errors.password}
           />
 
           <div
             className={`transition-all duration-500 ease-in-out overflow-hidden ${
-              role === "vendor" ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+              role === "vendor"
+                ? "max-h-[500px] opacity-100"
+                : "max-h-0 opacity-0"
             }`}
           >
             <InputField
-              label="Shop Name"
+              label="Company Name"
               type="text"
               id="shopName"
-              name="shopName"
-              value={state.formData.shopName}
+              name="companyName"
+              value={state?.formData.companyName}
               onChange={handleChange}
-              placeholder="Enter your shop name"
-              errorMessage={state.errors.shopName}
+              placeholder="Enter your Company Name"
+              errorMessage={state?.errors.companyName}
             />
 
             <InputField
-              label="Shop URL"
-              type="url"
-              id="shopUrl"
-              name="shopUrl"
-              value={state.formData.shopUrl}
+              label="Phone Number"
+              type="text"
+              id="phoneNum"
+              name="phoneNum"
+              value={state?.formData.phoneNum}
               onChange={handleChange}
-              placeholder="Enter your shop URL"
-              errorMessage={state.errors.shopUrl}
+              placeholder="Enter your Phone Number"
+              errorMessage={state?.errors.phoneNum}
             />
           </div>
 

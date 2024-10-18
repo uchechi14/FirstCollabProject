@@ -5,16 +5,20 @@ import SellerRoutingPage from "./SellerRoutingPage";
 
 const Seller = () => {
   return (
-    <div>
-      <div className=" flex flex-row-reverse fixed w-full">
-      <SellerHeader />
+      <div className=" flex flex-row-reverse fixed w-full bg-red-700">
+        <div className="w-full bg-pink-500">
+       <SellerHeader />
+      <div className="flex  h-[100vh] bg-[#e3e4e6] justify-center w-full">
+        <div className="w-[90%] bg-indigo-500 mt-10">
+        <SellerRoutingPage />
+        </div>
+      </div>
+      </div>
         <SideBar />
        
       </div>
-      <div className="flex items-center mt-[70px] right-0 justify-center absolute w-[90%]">
-        <SellerRoutingPage />
-      </div>
-    </div>
+      
+
   );
 };
 
