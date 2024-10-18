@@ -4,6 +4,7 @@ const SellerRoutingPage = () => {
   return (
    <Routes>
         <Route path="*" element={<SellerPage />} />
+ 
 
 
    </Routes>
