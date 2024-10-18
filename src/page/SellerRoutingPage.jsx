@@ -7,6 +7,7 @@ const SellerRoutingPage = () => {
   return (
    <Routes>
         <Route path="dashboard/" element={<SellerPage />} />
+ 
 
 
    </Routes>
