@@ -12,21 +12,19 @@ import creativeDesign from '../assets/creativeDesign.png'
 const LandingPage = () => {
   return (
     <>
-    <div className=' mt-4 top-[200px] absolute w-[100%] flex items-center flex-col '>
-      <div className='w-[90%] flex justify-between gap-3 '>
-            <div className='w-[65%] h-[300px]'>
+    <div className=' mt-4 top-[200px]  w-[100%] flex items-center flex-col '>
+      <div className='w-[90%] flex justify-between gap-3 max-md:flex-col'>
+            <div className='w-[65%] h-[300px] max-md:w-full'>
             <HeroSliderComponent />
-              {/* <HeroSliderComponent /> */}
             </div>
-            <div className='w-[33%]'>
+            <div className='w-[33%] max-md:w-full max-md:mt-[200px]'>
                 <img src={rightHeroImage} className=' w-full h-[220px]' />
                 <img src={lowerRightHeroImage} className='w-full mt-4 h-[220px]' />
-              {/* <HeroSliderComponent /> */}
             </div>
             </div>
     
   
-        <div className='w-[90%] flex justify-between gap-4 mt-9'>
+        <div className='w-[90%] flex justify-between gap-4 mt-16'>
             <div>
                 <img src={WatchImage} />
             </div>
@@ -45,7 +43,7 @@ const LandingPage = () => {
                 </div>
         </div>
         <div className='w-full flex justify-center bg-[#F9F9F9] py-4 mt-9'>
-        <div className='w-[90%] flex flex-col justify-between gap-4 mt-9'>
+        <div className='w-[90%] flex flex-col justify-between gap-4  py-9'>
            <div className='w-full flex justify-between border-b borrder-[#F9F9F9] pb-3'>
            <h1 className='text-2xl font-medium'>Hot Sales On Women Clothing</h1>
            <p className='text-[17px] font-medium hover:text-[#62ab00] cursor-pointer'>Buy Now</p>
@@ -55,8 +53,8 @@ const LandingPage = () => {
             </div>
         </div>
         </div>
-        <div className='w-full flex justify-center bg-[#333E48] mt-9'>
-            <div className='w-[90%] py-10 flex justify-between items-center '>
+        <div className='w-full flex justify-center bg-[#333E48]'>
+            <div className='w-[90%] py-14 flex justify-between items-center '>
                 <div>
                     <img src={creativeDesign} />
                 </div>
@@ -73,9 +71,6 @@ const LandingPage = () => {
                     <img src={creativeDesign} />
                 </div>
             </div>
-        </div>
-        <div className='w-[90%] flex justify-between mt-9 '>
-            <div></div>
         </div>
      
     </div>
