@@ -3,6 +3,8 @@ import InputField from "../components/InputField";
 import swal from "sweetalert";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../services/GlobalState";
 
 const ACTIONS = {
   UPDATE_FIELD: "UPDATE_FIELD",
@@ -59,6 +61,7 @@ const Login = () => {
   const [role, setRole] = useState("vendor");
   const [state, dispatch] = useReducer(formReducer, initialState);
   const navigate = useNavigate();
+  const reduxDispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,7 +72,7 @@ const Login = () => {
     });
 
     setTimeout(async () => {
-      if (Object.keys(state?.errors).length === 0) {
+      if (Object.keys(state?.errors)?.length === 0) {
         try {
           const res = await axios.post(
             "https://crossbackend.onrender.com/api/seler/signInUser",
@@ -79,6 +82,7 @@ const Login = () => {
           if (res.status === 200) {
             // Check for successful response
             console.log(res);
+            reduxDispatch(addUser(res.data.data));
             navigate("/seller/dashboard");
             swal("Success!", "Form submitted successfully!", "success");
           } else {
@@ -93,7 +97,7 @@ const Login = () => {
           );
         }
       } else {
-        const errorMessages = Object.values(state.errors).join("\n");
+        const errorMessages = Object.values(state?.errors).join("\n");
         swal("Error!", errorMessages, "error");
       }
     }, 0);

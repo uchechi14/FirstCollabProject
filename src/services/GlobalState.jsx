@@ -11,8 +11,8 @@ const GlobalState = createSlice({
   name: "userAuth",
   initialState,
   reducers: {
-    addProduct: (state, { payload }) => {
-      state.product = payload;
+    addUser: (state, { payload }) => {
+      state.user = payload;
     },
 
     addToCart: (state, { payload }) => {
@@ -56,7 +56,7 @@ const GlobalState = createSlice({
 
 export const {
   signOut,
-  addProduct,
+  addUser,
   addToCart,
   removeCart,
   removeAllCart,
