@@ -6,16 +6,16 @@ import image3 from "../../assets/iphone7.png"
 
 const UploadBody = () => {
   return (
-    <div className='w-full overflow-hidden my-4'>
+    <div className='w-full overflow-hidden'>
     <div className='flex gap-12 flex-wrap'>
         <div className='flex-1 flex flex-wrap flex-col gap-3'>
             <div className='flex-wrap flex flex-col'><span className="text-lg font-medium">Product Settings</span> <span className='text-[14px] text-gray-500'>Product Images</span></div>
 
             <div className='flex flex-wrap gap-3'>
-                <div className='p-3 size-[270px] rounded-md  hover:bg-gray-100 overflow-hidden hover:transition cursor-pointer hover:duration-500 hover:ease-in-out bg-gray-50'><img className="object-contain size-full" src={image} /></div>
+                <div className='p-3 size-[200px] rounded-md  hover:bg-gray-100 overflow-hidden hover:transition cursor-pointer hover:duration-500 hover:ease-in-out bg-gray-50'><img className="object-contain size-full" src={image} /></div>
            <div className=' flex flex-col items-center cursor-pointer flex-wrap justify-between gap-3'>
-            <div className='size-[125px] cursor-pointer rounded-md hover:transition hover:duration-500 hover:bg-gray-100 bg-gray-50'><img className="object-contain size-full" src={image2} /></div>
-            <div className='size-[125px] hover:bg-gray-100 hover:transition rounded-md hover:duration-500 bg-gray-50'><img className="object-contain size-full" src={image3} /></div>
+            <div className='size-[90px] cursor-pointer rounded-md hover:transition hover:duration-500 hover:bg-gray-100 bg-gray-50'><img className="object-contain size-full" src={image2} /></div>
+            <div className='size-[90px] hover:bg-gray-100 hover:transition rounded-md hover:duration-500 bg-gray-50'><img className="object-contain size-full" src={image3} /></div>
            </div>
 
             </div>
@@ -23,7 +23,7 @@ const UploadBody = () => {
 
             <div className="flex flex-wrap gap-2 flex-col">
                 <div className="text-[15px] font-medium">Description</div>
-                <div className="px-3 pt-4 pb-6 border rounded-md text-[14px]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti mollitia accusamus id laudantium, sint nulla rerum. Quibusdam aspernatur praesentium dicta delectus iste suscipit tempora. Tempore nostrum debitis molestias omnis ab dolorum deserunt perspiciatis, et eum ratione distinctio facilis, odio nihil hic dolor autem, qui illum laboriosam non assumenda soluta dignissimos?</div>
+                <div className=" pt-4 pb-6 rounded-md text-[14px]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti mollitia accusamus id laudantium, sint nulla rerum. Quibusdam aspernatur praesentium dicta delectus iste suscipit tempora. Tempore nostrum debitis molestias omnis ab dolorum deserunt perspiciatis, et eum ratione distinctio facilis, odio nihil hic dolor autem, qui illum laboriosam non assumenda soluta dignissimos?</div>
 
             </div>
         </div>
@@ -81,6 +81,7 @@ const UploadBody = () => {
 
                 <div className="flex flex-col">
                 <div>Quantity in stock</div> <div><UploadInput/></div>   
+
                 </div>
 
                 <div className="flex flex-col">
