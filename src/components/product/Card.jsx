@@ -3,6 +3,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { PiDeviceMobileSpeakerThin, PiShoppingCartLight } from "react-icons/pi";
 import { addToCart } from "../../services/GlobalState";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Card = ({ props, index }) => {
   const [showContent, setShowContent] = useState(false);
@@ -54,12 +55,14 @@ const Card = ({ props, index }) => {
         </div>
       )}
       <div className="flex w-full flex-col">
-        <div className="font-medium">
+       <Link to={`/detail/${props?.id}`}>
+       <div className="font-medium">
           title:{" "}
           <span className="font-normal cursor-pointer">
             {props.title.slice(0, 18)}...
           </span>
         </div>
+       </Link>
         <div className="font-medium ">
           price:
           <span className=" ml-1 text-lg font-medium text-blue-500">

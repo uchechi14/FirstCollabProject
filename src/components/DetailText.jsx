@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import { addToCart } from '../services/GlobalState';
+import { useDispatch } from "react-redux";
+import { useParams } from 'react-router-dom';
 
-const DetailText = () => {
+
+const DetailText = ({description, price, title, category, data }) => {
+
+  const dispatch = useDispatch();
+  const {id} = useParams()
   const [count, setCount] = useState(1);
-  const basePrice = 19.00; 
+  // const basePrice = {price}; 
 
   const increment = () => {
     setCount(count + 1);
@@ -14,24 +21,25 @@ const DetailText = () => {
     }
   };
 
-  const totalPrice = (basePrice * count).toFixed(2);
+
+  const Newprice = (price * count).toFixed(2);
 
   return (
     <div>
         <div className="mt-10 p-6 bg-gray-50 rounded-lg shadow-md ">
       <div className="flex flex-col">
-        <h1 className="text-2xl font-semibold text-gray-800">Women Tops Solid Color</h1>
+        <h1 className="text-2xl font-semibold text-gray-800">{title}</h1>
         
         <div className="flex items-center mt-2">
           <h3 className='text-sm text-gray-600'>Category:</h3>
-          <h3 className='text-sm text-blue-700 ml-2'>Women Clothing</h3>
+          <h3 className='text-sm text-blue-700 ml-2'>{category}</h3>
         </div>
 
         <p className="mt-3 text-gray-700 w-[400px]">
-          Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+          {description}
         </p>
 
-        <h2 className="text-green-600 font-bold mt-3 text-xl">${totalPrice}</h2>
+        <h2 className="text-green-600 font-bold mt-3 text-xl"> ${Newprice}</h2>
 
         <div className="flex gap-4 mt-4">
           <div className="flex items-center border border-gray-400 rounded-md overflow-hidden">
@@ -51,7 +59,8 @@ const DetailText = () => {
             </button>
           </div>
 
-          <button className="bg-orange-500 hover:bg-orange-600 px-5 py-2 text-white text-sm rounded-md">
+          <button className="bg-[#62AB00] hover:bg-[#6a9434] px-5 py-3 text-white text-sm rounded-md" 
+           onClick={()=>dispatch(addToCart(id))}>
             Add to cart
           </button>
         </div>
