@@ -7,6 +7,7 @@ import { IoCart } from "react-icons/io5";
 import { IoIosStats } from "react-icons/io";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { BsEmojiSmile } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
 
@@ -39,7 +40,7 @@ const SideBar = () => {
     <div className="w-[85%] mt-4 ">
       <SideBarComponents title='Dashboard' iconA='aa' />
       <SideBarComponents title='Products' iconB='aa'/>
-      <SideBarComponents title='Orders' iconC='aa' />
+      <Link to='/upload_page' ><SideBarComponents title='Orders' iconC='aa' /></Link>
       <SideBarComponents title='Statistics' iconD='aa' />
       <SideBarComponents title='Review' iconE='aa' />
       <SideBarComponents title='Customers' iconF='aa' />

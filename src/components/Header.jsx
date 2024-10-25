@@ -49,15 +49,16 @@ const Header = () => {
     <div className='w-[90%] flex justify-between py-[25px] items-center  '>
         <div>LOGO</div>
         <div className='flex items-center gap-14 max-md:hidden'>
-            <p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00]'>Home</p>
-            <p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00]'>Shop</p>
+          <Link to = '*'>  <p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00]'>Home</p></Link>
+            <Link to = '/product_page'><p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00]'>Shop</p></Link>
             <p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00]'>Contact</p>
         </div>
         <div className='flex gap-4 items-center'>
         <div className='flex gap-5 '>
             <div className='flex gap-1 cursor-pointer hover:text-[#62AB00] items-center'> <p className='text-small font-medium'>EN</p> <p className='text-medium'><IoIosArrowDown /></p> </div>
             <div className='flex gap-1 cursor-pointer hover:text-[#62AB00]'> <p className='text-medium'><FaRegUser /></p> <p className='text-small font-medium '>Account</p> </div>
-            <div className='flex gap-1 cursor-pointer hover:text-[#62AB00]'> <p className='text-medium '><HiOutlineShoppingCart /></p> <p className='text-small font-medium'>Cart </p></div>
+         <Link to ='cart_page'>  <div className='flex gap-1 cursor-pointer hover:text-[#62AB00]'> <p className='text-medium '><HiOutlineShoppingCart /></p> <p className='text-small font-medium'>Cart </p></div>
+         </Link>
         </div>
         <div className='text-[30px] cursor-pointer md:hidden' onClick={menuDropDown}><IoMenuSharp /></div>
         </div>
@@ -68,7 +69,7 @@ const Header = () => {
                 <div className='w-[90%] flex justify-end'>
                 <div className='w-[50%] flex flex-col items-center gap-6 h-[250px] bg-white border-[#bbbcbd] z-50 border  absolute top-[90px]  py-6 md:hidden '>
             <p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00] border-b border-[#bbbcbd] w-full flex justify-center pb-3'>Home</p>
-            <p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00] border-b border-[#bbbcbd] w-full flex justify-center pb-3'>Shop</p>
+            <Link to=''><p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00] border-b border-[#bbbcbd] w-full flex justify-center pb-3'>Shop</p></Link>
             <p className='text-[15px] font-medium cursor-pointer active:text-[#62AB00]  w-full flex justify-center pb-3'>Contact</p>
             </div>
                 </div>
