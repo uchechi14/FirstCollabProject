@@ -28,7 +28,7 @@ const DetailText = ({description, price, title, category, data }) => {
     <div>
         <div className="mt-10 p-6 bg-gray-50 rounded-lg shadow-md ">
       <div className="flex flex-col">
-        <h1 className="text-2xl font-semibold text-gray-800">{title}</h1>
+        <h1 className="text-2xl w-[80%] font-semibold text-gray-800">{title}</h1>
         
         <div className="flex items-center mt-2">
           <h3 className='text-sm text-gray-600'>Category:</h3>
@@ -60,7 +60,7 @@ const DetailText = ({description, price, title, category, data }) => {
           </div>
 
           <button className="bg-[#62AB00] hover:bg-[#6a9434] px-5 py-3 text-white text-sm rounded-md" 
-           onClick={()=>dispatch(addToCart(id))}>
+           onClick={()=>dispatch(addToCart(props))}>
             Add to cart
           </button>
         </div>
