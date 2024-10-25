@@ -14,8 +14,8 @@ const BuyerRoutingPage = () => {
    <Routes>
         <Route path="*" element={<LandingPage />} />
         <Route path="payment/" element={ <CheckOut/> } />
-             <Route path="/product_page" element={<ProductHolder />} />
-        <Route path="/cart_page" element={<Cart />} />       
+        <Route path="/product_page" element={<ProductHolder />} />
+          <Route path="/cart_page" element={<Cart />} />       
    </Routes>
    <Footer/>
    </>
